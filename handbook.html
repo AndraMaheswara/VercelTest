@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handbook - Under Construction</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Animasi Kelopak Sakura -->
+    <div class="sakura-container" id="sakuraContainer"></div>
+
+    <div class="container">
+        <main class="construction-wrapper">
+            <div class="card construction-card">
+                <div class="construction-icon">🌸</div>
+                
+                <!-- Badge di-resize agar lebih pas dan ringkas -->
+                <span class="badge badge-maintenance construction-badge">Under Construction</span>
+                
+                <h1>Handbook Dalam Pengembangan</h1>
+                <p>Halaman panduan dan penjelasan alur sistem sedang disiapkan. Silakan kembali lagi nanti!</p>
+                
+                <!-- Opsi kembali dalam bentuk Button -->
+                <a href="index.html" class="btn-back">
+                    <span class="arrow">&larr;</span> Kembali ke Portofolio
+                </a>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; Test</p>
+        </footer>
+    </div>
+
+    <!-- Script Animasi Kelopak Sakura -->
+    <script>
+        function createPetal() {
+            const container = document.getElementById('sakuraContainer');
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+            
+            petal.style.left = Math.random() * 100 + 'vw';
+            const size = Math.random() * 8 + 8;
+            petal.style.width = size + 'px';
+            petal.style.height = size * 1.2 + 'px';
+            
+            const fallDuration = Math.random() * 6 + 6;
+            const swayDuration = Math.random() * 3 + 2;
+            
+            petal.style.animationDuration = `${fallDuration}s, ${swayDuration}s`;
+            petal.style.opacity = Math.random() * 0.7 + 0.3;
+
+            container.appendChild(petal);
+
+            setTimeout(() => {
+                petal.remove();
+            }, fallDuration * 1000);
+        }
+        setInterval(createPetal, 350);
+    </script>
+</body>
+</html>
