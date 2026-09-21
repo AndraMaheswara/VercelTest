@@ -223,6 +223,12 @@ footer {
     border-color: rgba(125, 211, 252, 0.3);
 }
 
+.badge-online {
+    background-color: rgba(129, 252, 125, 0.15); /* Nuansa biru muda pastel */
+    color: #00ff6a;
+    border-color: rgb(151, 255, 186);
+}
+
 /* Badge Khusus Bootstrap (Oranye Pastel) */
 .badge-bootstrap {
     background-color: rgba(251, 146, 60, 0.15); /* Background oranye transparan */
