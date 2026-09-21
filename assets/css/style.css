@@ -53,16 +53,24 @@ body {
 
 .petal {
     position: absolute;
-    top: -20px;
-    background: linear-gradient(135deg, #ffc0cb 0%, #ffb7c5 100%);
+    top: 0;
+    left: 0;
+    background: linear-gradient(135deg, #ffb7c5, #ffd1dc);
     border-radius: 150% 0 150% 0;
-    transform: rotate(45deg);
-    animation: fall linear infinite, sway ease-in-out infinite;
+    pointer-events: none;
+    will-change: transform;
 }
 
-@keyframes fall {
-    0% { top: -50px; transform: translateY(0) rotate(0deg); }
-    100% { top: 105vh; transform: translateY(100vh) rotate(360deg); }
+@keyframes petalFall {
+    0% {
+        offset-distance: 0%;
+        transform: rotate(var(--rotation-start));
+    }
+
+    100% {
+        offset-distance: 100%;
+        transform: rotate(var(--rotation-end));
+    }
 }
 
 

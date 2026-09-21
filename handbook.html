@@ -17,7 +17,7 @@
                 <div class="construction-icon">🌸</div>
                 
                 <!-- Badge di-resize agar lebih pas dan ringkas -->
-                <span class="badge badge-maintenance construction-badge">Under Construction</span>
+                <span class="badge badge-content">Under Construction</span>
                 
                 <h1>Handbook Masih Maintenance ;w;</h1>
                 <p>Halaman panduan dan penjelasan alur sistem sedang disiapkan. Silakan kembali lagi nanti!</p>
@@ -35,30 +35,103 @@
     </div>
 
     <!-- Script Animasi Kelopak Sakura -->
-    <script>
-        function createPetal() {
-            const container = document.getElementById('sakuraContainer');
-            const petal = document.createElement('div');
-            petal.classList.add('petal');
-            
-            petal.style.left = Math.random() * 100 + 'vw';
-            const size = Math.random() * 8 + 8;
-            petal.style.width = size + 'px';
-            petal.style.height = size * 1.2 + 'px';
-            
-            const fallDuration = Math.random() * 6 + 6;
-            const swayDuration = Math.random() * 3 + 2;
-            
-            petal.style.animationDuration = `${fallDuration}s, ${swayDuration}s`;
-            petal.style.opacity = Math.random() * 0.7 + 0.3;
+  <script>
+const sakuraContainer = document.getElementById('sakuraContainer');
 
-            container.appendChild(petal);
+function random(min, max) {
+    return Math.random() * (max - min) + min;
+}
 
-            setTimeout(() => {
-                petal.remove();
-            }, fallDuration * 1000);
+function createPetal() {
+    const petal = document.createElement('div');
+    petal.classList.add('petal');
+
+    const width = random(8, 16);
+    const height = width * random(1.4, 2);
+
+    petal.style.width = width + 'px';
+    petal.style.height = height + 'px';
+    petal.style.opacity = random(0.3, 1);
+
+    sakuraContainer.appendChild(petal);
+
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
+    // Titik awal
+    const p0 = {
+        x: random(-50, screenWidth + 50),
+        y: -50
+    };
+
+    // Titik kontrol 1
+    const p1 = {
+        x: p0.x + random(-300, 300),
+        y: screenHeight * random(0.15, 0.35)
+    };
+
+    // Titik kontrol 2
+    const p2 = {
+        x: p0.x + random(-400, 400),
+        y: screenHeight * random(0.55, 0.75)
+    };
+
+    // Titik akhir
+    const p3 = {
+        x: p0.x + random(-500, 500),
+        y: screenHeight + 100
+    };
+
+    const duration = random(7000, 13000);
+    const rotation = random(-720, 720);
+
+    const startTime = performance.now();
+
+    function animate(time) {
+        const elapsed = time - startTime;
+        const t = Math.min(elapsed / duration, 1);
+
+        // Cubic Bézier
+        const inv = 1 - t;
+
+        const x =
+            inv * inv * inv * p0.x +
+            3 * inv * inv * t * p1.x +
+            3 * inv * t * t * p2.x +
+            t * t * t * p3.x;
+
+        const y =
+            inv * inv * inv * p0.y +
+            3 * inv * inv * t * p1.y +
+            3 * inv * t * t * p2.y +
+            t * t * t * p3.y;
+
+        const currentRotation = rotation * t;
+
+        petal.style.transform =
+            `translate3d(${x}px, ${y}px, 0) rotate(${currentRotation}deg)`;
+
+        if (t < 1) {
+            requestAnimationFrame(animate);
+        } else {
+            petal.remove();
         }
-        setInterval(createPetal, 350);
-    </script>
+    }
+
+    requestAnimationFrame(animate);
+}
+
+// Spawn petal dengan interval acak
+function spawnPetal() {
+    createPetal();
+
+    setTimeout(
+        spawnPetal,
+        random(150, 500)
+    );
+}
+
+spawnPetal();
+</script>
 </body>
 </html>
