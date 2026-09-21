@@ -8,7 +8,22 @@
     --accent-glow: rgba(255, 183, 197, 0.4);
     --border: rgba(255, 183, 197, 0.2);
 }
+header {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    padding: 18px 0 21px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 20px;
+    background: rgba(30, 27, 36, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 0 0 12px 12px;
 
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    box-sizing: border-box;
+}
 /* ===== RESET & LAYOUT ===== */
 body {
     margin: 0;
@@ -71,17 +86,6 @@ body {
     flex-direction: column;
     position: relative;
     z-index: 2;
-}
-
-/* ===== HEADER ===== */
-header {
-    text-align: center;
-    padding: 15px 0 20px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 20px;
-    background: rgba(30, 27, 36, 0.6);
-    backdrop-filter: blur(8px);
-    border-radius: 12px;
 }
 
 header h1 {
@@ -226,7 +230,7 @@ footer {
 .badge-online {
     background-color: rgba(129, 252, 125, 0.15); /* Nuansa biru muda pastel */
     color: #00ff6a;
-    border-color: rgb(151, 255, 186);
+    border-color: rgba(127, 211, 155, 0.616);
 }
 
 /* Badge Khusus Bootstrap (Oranye Pastel) */
