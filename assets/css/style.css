@@ -195,11 +195,10 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(30, 27, 36, 0.4); /* Warna lapisan tembus pandang */
+    background-color: rgba(30, 27, 36, 0.623); /* Warna lapisan tembus pandang */
     
     /* Efek Blur dan Grayscale (Hitam Putih) yang menembus ke belakang */
     backdrop-filter: blur(4px) grayscale(100%);
-    -webkit-backdrop-filter: blur(4px) grayscale(100%); /* Dukungan Safari */
     
     display: flex;
     justify-content: center; /* Memposisikan badge di tengah vertikal/horizontal */
@@ -238,6 +237,12 @@ footer {
     background-color: rgba(251, 146, 60, 0.15); /* Background oranye transparan */
     color: #fb923c;                             /* Teks oranye */
     border-color: rgba(251, 146, 60, 0.3);       /* Garis tepi oranye */
+}
+
+.badge-content {
+    background-color: rgba(250, 204, 21, 0.15);
+    color: #facc15;
+    border-color: rgba(250, 204, 21, 0.3);
 }
 
 /* ===== HANDBOOK UNDER CONSTRUCTION PAGE ===== */
