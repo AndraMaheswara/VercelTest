@@ -206,7 +206,7 @@ footer {
     background-color: rgba(30, 27, 36, 0.623); /* Warna lapisan tembus pandang */
     
     /* Efek Blur dan Grayscale (Hitam Putih) yang menembus ke belakang */
-    backdrop-filter: blur(4px) grayscale(100%);
+    backdrop-filter: blur(2.4px) grayscale(100%);
     
     display: flex;
     justify-content: center; /* Memposisikan badge di tengah vertikal/horizontal */
